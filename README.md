@@ -1,19 +1,20 @@
-# MotionForge — Event Motion Studio
+# MotionForge — Motion Ad Studio
 
-A dark, editorial event-design workspace. Add event information and speaker portraits, choose an art direction, and preview a live animated event composition.
+MotionForge turns event information and host/speaker portraits into animated promotional videos.
 
-## Current features
-- Responsive studio dashboard
-- Event name, tagline, date, time, venue and organiser fields
-- Multiple speaker / host profiles with local image uploads
-- Four visual directions: Noir/Gold, Electric, Monochrome and Pulse
-- Live animated composition with four selectable scenes
-- Portrait (9:16) and landscape (16:9) layouts
-- High-resolution PNG poster export
-- Downloadable JSON project file
-- Local browser autosave
+## Phase 2 features
+- Canvas-based animated ad composition with four scenes: opening, people, event details and call to action
+- Editorial motion language inspired by the supplied reference: animated data lines, grid, kinetic typography, subtle RGB/glitch accents and moving particles
+- Speaker and host portrait uploads
+- In-browser background removal using @imgly/background-removal
+- Transparent speaker cutouts composited into the people scene
+- Four art directions: Signal / Editorial, Afterglow, Electric and Mono / Luxe
+- Story/Reel, feed portrait, square and landscape output sizes
+- Optional background soundtrack mixed into supported browser recordings
+- Browser video recording and MP4 conversion with FFmpeg.wasm when needed
+- Scene-by-scene preview, poster-frame export and local autosave
 
-## Run locally
+## Run
 ```bash
 npm install
 npm run dev
@@ -22,14 +23,12 @@ npm run dev
 ## Build
 ```bash
 npm run build
-npm run preview
 ```
 
-## Roadmap
-1. Remotion-based video composition and server-side MP4 rendering.
-2. Background music and sound design controls.
-3. More scene templates, editable transitions and per-scene timing.
-4. Cloud project storage, user accounts and team workspaces.
-5. Print-ready poster and platform-specific social exports.
+## Rendering notes
+Video is composed and recorded in the user's browser. Browsers that can record MP4 directly use that format; other browsers record WebM and convert it to MP4 locally using FFmpeg.wasm. The first MP4 conversion downloads FFmpeg core WASM assets into the browser. Video export is resource-intensive; a desktop browser is recommended for long or high-resolution renders.
 
-**Important:** This first milestone exports PNG posters and project JSON. The animated preview is client-side; MP4 rendering is not yet implemented. Uploaded portraits are stored in the browser session/project state, not uploaded to a server.
+Portrait background removal runs in the browser and downloads model assets on first use. Uploaded portraits are not sent to a MotionForge server.
+
+## Current storage
+Event text settings are saved in local browser storage. Portraits and music remain in the current browser session; cloud project storage and user accounts are not implemented yet.

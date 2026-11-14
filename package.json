@@ -1,7 +1,7 @@
 {
   "name": "motionforge",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
@@ -9,6 +9,9 @@
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
+    "@ffmpeg/ffmpeg": "latest",
+    "@ffmpeg/util": "latest",
+    "@imgly/background-removal": "latest",
     "@vitejs/plugin-react": "latest",
     "vite": "latest",
     "react": "latest",
